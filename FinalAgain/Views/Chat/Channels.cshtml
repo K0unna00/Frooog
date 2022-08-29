@@ -1,0 +1,14 @@
+﻿@model List<Channel>
+@{
+    ViewData["Title"] = "Channels";
+}
+
+<ul class="list-group list-group-flush">
+    @foreach(Channel channel in Model)
+    {
+    <li class="list-group-item rounded">
+        <a asp-action="index" asp-controller="chat" asp-route-id="@channel.Id" class="btn btn-primary">@channel.Name</a>
+    </li>   
+    }
+</ul>
+

@@ -1,0 +1,54 @@
+﻿@model Channel;
+@{
+
+}
+<div class="main">
+    <nav class="navbar navbar-expand navbar-light navbar-bg justify-content-between">
+        <a class="sidebar-toggle js-sidebar-toggle hamburgerA">
+            <img src="~/assets/images/Hamburger.png">
+        </a>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row text-center flex-column justify-content-center">
+               <div class="col-12 CreateServer mt-3">
+                    <div class="col-12 mt-3 ms-1">
+                        <h1>Create Server</h1>
+                    </div>
+                    <div class="col-12">
+                        <form class="d-flex flex-column" asp-action="EditServer" method="post" enctype="multipart/form-data">
+                            <input asp-for="Name" placeholder="Title" class="fooormInput">
+                            <span asp-validation-for="Name" class="text-white validationFooorm">Max 50 char</span>
+
+                            <textarea asp-for="Desc" placeholder="Description" cols="5" rows="12" class="fooormTextArea"></textarea>
+                            <span asp-validation-for="Desc" class="text-white validationFooorm">Max 245 char</span>
+
+                            <div class="d-flex">
+                                <input asp-for="IsPrivate" class="fooormInput isPrivate">
+                                <label asp-for="IsPrivate">Private Server</label>
+                            </div>
+                            <span asp-validation-for="IsPrivate" class="text-white validationFooorm"></span>
+
+                            <div class="d-flex ServerImageDiv">
+                                <img src="~/uploads/servers/@Model.ServerImage" class="EditServerImg"/>
+                                <input asp-for="ServerImageFile" class="fooormInput mt-5 serverImageInput">
+                                <label asp-for="ServerImageFile" class="ServerEditLabel">Server's Profile Photo</label>
+                             </div>
+                             <span asp-validation-for="ServerImageFile" class="text-white validationFooorm"></span>
+                             <hr class="EditServerHr mx-auto"/>
+
+                            <button type="submit" class="fooormSubmit ">Edit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+    @section scripts{
+        <script src="~/assets/js/app.js"></script>
+
+    }
+

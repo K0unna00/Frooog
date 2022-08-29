@@ -1,0 +1,45 @@
+﻿@model List<Position>
+@{
+    int count = ViewBag.startCount;
+}
+<a class="btn btn-primary" asp-action="Create">Create</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Desc</th>
+            <th scope="col">Image</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var area in Model)
+        {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@area.Name</td>
+                <td>@area.Desc</td>
+                <td>
+                    <img width="100" src="~/uploads/positions/@area.Image"/>
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@area.Id">Edit</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@area.Id">Delete</a>
+                </td>
+            </tr>
+            count++;
+        }
+
+    </tbody>
+</table>
+<div class="text-center">
+    <nav aria-label="Page navigation example" class="d-inline-block">
+        <ul class="pagination">
+            @for (int i = 1; i < ViewBag.pageMax+1; i++)
+            {
+                <li class="page-item"><a class="page-link" asp-route-page="@i" asp-action="Index">@i</a></li>
+            }
+        </ul>
+    </nav>
+</div>

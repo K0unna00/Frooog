@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model List<AppUser>
+
+<a asp-action="channels" class="btn btn-primary">Go Back</a>
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <ul class="list-group">
+                <li class="list-group-item bg-secondary">Users</li>
+                @foreach (var i in Model)
+                {
+                    <li class="list-group-item">@i.UserName</li>
+                }
+            </ul>
+        </div>
+        <div class="col-5">
+            <ul class="list-group list-unstyled" id="messageBox" style="max-height:250px;overflow-y: scroll;">
+                @foreach (var message in ViewBag.Messages)
+                {
+                    <li>
+                        <p>@message.User.UserName:@message.Text</p>
+                    </li>
+                }
+            </ul>
+            <div class="col-7 d-flex ">
+                <input id="messageInput" class="ms-0" />
+                <input type="hidden" name="@ViewBag.ChannelId" value="@ViewBag.ChannelId" id="ChannelId"/>
+                <a id="sendButton" class="ms-auto btn btn-primary" asp-action="SetMessage" asp-controller="Chat">
+                    Send
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/assets/js/MessageSend.js"></script>
+}
+
+

@@ -1,0 +1,89 @@
+﻿@model List<AppUser>
+<div class="main">
+    <nav class="navbar navbar-expand navbar-light navbar-bg justify-content-between">
+        <a class="sidebar-toggle js-sidebar-toggle hamburgerA">
+            <img src="~/assets/images/Hamburger.png">
+        </a>
+        <ul class="inboxButtons">
+            <li>
+                <a class="userList-toggle d-flex">
+                    <i class="fa-solid fa-user me-2"></i>
+                    <p class="m-0 p-0 text-white">Friends</p>
+                </a>
+            </li>
+            @*<li>
+            <a class="">
+            <i class="fa-solid fa-phone"></i>
+            </a>
+            </li>
+            <li>
+            <a id="onCam" >
+            <i class="fa-solid fa-camera-alt"></i>
+            </a>
+            </li>*@
+        </ul>
+    </nav>
+    <main>
+        <div class="main d-flex flex-row">
+            <div class="inboxUserList" id="UL">
+                <ul>
+                    <li>
+                        <div class="col-6 w-75 text-white mx-auto text-center addServerBtn align-items-center">
+                            <a asp-action="AddFriend" asp-controller="Friendship_FriendRequest">
+                                <i class="fa-solid fa-circle-plus"></i>
+                                <p>
+                                    Add New Friend
+                                </p>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    @foreach (var user in Model)
+                    {
+
+                        <li class="d-flex inboxULBtn">
+                            <a class="userBtn d-flex" data-FUserName="@User.Identity.Name" data-TuserId="@user.Id" asp-action="GetMessageInbox" asp-controller="Home">
+                                <img src="~/uploads/users/@user.UserPP" alt="">
+                                <p>@user.UserName</p>
+                                @if (user.ConnectionId != null)
+                                {
+                                    <div class="userStatus"></div>
+                                }
+                                @*else
+                            {
+                            <span class="userStatus">Offline</span>
+                            }*@
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="chatSection d-flex flex-column justify-content-between">
+                @*<img class="placeHolderImg" src="./assets/images/placeHolder.png" />*@
+                <div class="messageArea mx-auto">
+                </div>
+                <form class="textArea text-center displayN" enctype="multipart/form-data">
+                    <input type="hidden" id="FUserID" />
+                    <input type="hidden" id="TUserID" />
+                    <input type="file" class="addImageInput" />
+                    <button type="submit" class="addImageButton"></button>
+                    <input id="messageInput" type="text">
+                    <a id="sendButton" asp-action="SetMessageInbox" asp-controller="Chat"><img src="~/assets/images/FrogJump.png" /></a>
+                    <span id="clicks"></span>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+@section scripts{
+    <script src="https://cdn.webrtc-experiment.com/commits.js"></script>
+    <script src="https://cdn.WebRTC-Experiment.com/MediaStreamRecorder.js"></script>
+    <script src="https://cdn.WebRTC-Experiment.com/gumadapter.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/MessageSendInbox.js"></script>
+    <script src="~/assets/js/ShowMessageInbox.js"></script>
+    <script src="~/assets/js/Camera.js"></script>
+}

@@ -1,0 +1,34 @@
+﻿<div class="main">
+            <nav class="navbar navbar-expand navbar-light navbar-bg justify-content-between">
+                <a class="sidebar-toggle js-sidebar-toggle hamburgerA">
+                    <img src="/assets/images/Hamburger.png">
+                </a>
+            </nav>
+            <main>
+                <div class="container">
+                    <div class="row d-block">
+                        <p style="font-size: 30px;" class="text-white mt-5">Add New Friend</p>
+                        <div class="col-12 inputName">
+                            <input  class="searchInput" type="text" placeholder="Input Name" >
+                            <a class="UserSearchButton" asp-action="SearchUser" asp-controller="Friendship_FriendRequest"><i class="fa-solid fa-search ms-2"></i></a>
+                        </div>
+                        <div class="col-12 mt-4 searchedUsers">
+                            <ul id="searchedUser">
+                                @*<li class="d-flex col-3 mt-3 justify-content-between RequestUserListItem">
+                                    <div class="user">
+                                        <img src="/assets/images/pp.png" alt="">
+                                        <p class="text-white " style="font-size:20px;" >aaasdasdasdasdasd</p>
+                                    </div>
+                                    <a asp-action="SendRequest" asp-controller="Friendship_FriendRequestController" class="SendRequest">Send Request</a>
+                                </li>*@
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+@section scripts{
+    <script src="~/assets/js/SearchUser.js"></script>
+    <script src="~/assets/js/SendRequest.js"></script>
+}

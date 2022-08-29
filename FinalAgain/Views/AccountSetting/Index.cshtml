@@ -1,0 +1,259 @@
+﻿@model AccountSettingViewModel
+@{
+    var userData = ViewBag.UsersData;
+    var requestData = ViewBag.JoinRequests;
+    var FriendData = ViewBag.FriendUsers;
+    var ownedServers = ViewBag.OwnedServers;
+    var servers = ViewBag.Servers;
+    int count = 0;
+    int friendCount = 0;
+    int requestCount = 0;
+    int serverCount = 0;
+    bool check = false;
+
+}
+<div class="main">
+    <nav class="navbar navbar-expand navbar-light navbar-bg justify-content-between">
+        <a class="sidebar-toggle js-sidebar-toggle hamburgerA">
+            <img src="~/assets/images/Hamburger.png">
+        </a>
+    </nav>
+    <div class="MainSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Settings</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link active " href="#Profile">Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="#Security">Security</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Friends">Friends</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Servers">Servers</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-12 Profile mt-3" id="Profile">
+                    <div class="col-12 mt-3 ms-1">
+                        <h1>Profile</h1>
+                    </div>
+                    <div class="col-12 photoSection ">
+                        <form class="d-flex justify-content-between" enctype="multipart/form-data" asp-action="EditProfilePhoto" method="post">
+                            <input asp-for="@Model.user.UserName" placeholder="UserName" type="hidden">
+                            <input asp-for="@Model.user.Email" placeholder="Email" type="hidden">
+
+                            <div class="col-2">
+                                <img src="~/uploads/users/@Model.user.UserPP" alt="">
+                            </div>
+                            <div class="col-5 align-self-end button justify-content-end  d-flex">
+                                <input asp-for="@Model.user.UserPPFile" class="" placeholder="Change Photo">
+                                <button type="submit">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-12 infoSection ">
+                        <form class="d-flex justify-content-between" asp-action="EditProfile" method="post">
+                            <div class="col-5">
+                                <div class="input">
+                                    <input asp-for="@Model.user.Email" placeholder="Email">
+                                </div>
+                                <div class="input">
+                                    <textarea  asp-for="@Model.user.Description" cols="32" rows="13" class="text-star" placeholder="About"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-5 align-self-end button justify-content-end  d-flex">
+                                <button type="submit">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 Security mt-3 " id="Security">
+                    <div class="col-12 mt-3 ms-1">
+                        <h1>Security</h1>
+                    </div>
+                    <form asp-action="ResetPasswordOnSettings" method="post">
+                        <div class="col-12 infoSection d-flex justify-content-between">
+                        <div class="col-3">
+                            <div class="input">
+                                <input asp-for="@Model.SecuriryResetPassword.Password" placeholder="Password">
+                            </div>
+                            <div class="input">
+                                <input asp-for="@Model.SecuriryResetPassword.ConfirmPassword" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="col-5 align-self-end justify-content-end button d-flex">
+                            <button>
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                    </form>
+                    
+                </div>
+                <div class="col-12 Security mt-3 " id="Friends">
+                    <div class="col-12 mt-3 ms-1">
+                        <h1>Friends</h1>
+                    </div>
+                    <div class="col-12 infoSection d-flex ">
+                        @foreach (var item in FriendData)
+                        {
+                            friendCount++;
+                            <div class="col-1 me-3 FriendRequestDiv">
+                                <div class="input friendPP">
+                                    <img src="~/uploads/Users/@item.UserPP" />
+                                    <p class="text-white">@item.UserName</p>
+                                </div>
+                                <div class="col-9 align-self-end justify-content-end button d-flex">
+                                    <a class="btn btn-danger" asp-action="RemoveFriend" asp-controller="Friendship_FriendRequest" asp-route-id="@item.Id"><i class="fa-solid fa-ban"></i></a>
+                                </div>
+                            </div>
+                        }
+                        @if (friendCount == 0)
+                        {
+                            <p class="text-white" style="font-size:22px;">There is no friend</p>
+                        }
+                    </div>
+                    <div class="col-12 mt-3 ms-1">
+                        <h1>Friend Requests</h1>
+                    </div>
+                    <div class="col-12 infoSection d-flex ">
+                        @foreach (var item in userData)
+                        {
+                            count++;
+                            <div class="col-3 d-flex FriendRequestDiv">
+                                <div class="input">
+                                    <img src="~/uploads/Users/@item.UserPP" />
+                                    <p class="text-white">@item.UserName</p>
+                                </div>
+                                <div class="col-9 button pt-5 ps-2 pe-2 w-50">
+                                    <a class="btn btn-success d-block m-1" asp-action="AcceptRequest" asp-controller="Friendship_FriendRequest" asp-route-id="@item.Id">
+                                        Accept
+                                    </a>
+                                    <a class="btn btn-danger d-block m-1" asp-action="RejectRequest" asp-controller="Friendship_FriendRequest" asp-route-id="@item.Id">
+                                        Reject
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                        @if (count == 0)
+                        {
+                            <p class="text-white" style="font-size:22px;">There is no friend request</p>
+                        }
+                    </div>
+                </div>
+                <div class="col-12 Security mt-3 " id="Servers">
+                    <div class="col-12 mt-3 ms-1">
+                        <h1>Servers you are a member of</h1>
+                    </div>
+                    <div class="col-12 infoSection d-flex text-start">
+                        @foreach (var item in servers)
+                        {
+                            serverCount++;
+                            <div class="col-2 me-5 OwnedServersDiv">
+                                <div class="input friendPP">
+                                    <img src="~/uploads/servers/@item.ServerImage" />
+                                    <p class="text-white">@item.Name</p>
+                                </div>
+                                @foreach (var i in ownedServers)
+                                {
+                                    if (item.Id == i.Id)
+                                    {
+                                        check = true;
+                                    }
+                                }
+                                @if (!check)
+                                {
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <a class="btn btn-danger" asp-action="LeaveServer" asp-controller="home" asp-route-id="@item.Id"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    check = false;
+                                }
+                            </div>
+                        }
+                        @if (serverCount == 0)
+                        {
+                            <p class="text-white" style="font-size:22px;">You dont have any server </p>
+                        }
+                    </div>
+                    <div class="col-12 mt-3 ms-1">
+                        <h1>Owned Servers</h1>
+                    </div>
+                    <div class="col-12 infoSection d-flex text-start">
+                        @foreach (var item in ownedServers)
+                        {
+                            serverCount++;
+                            <div class="col-2 me-5 OwnedServersDiv">
+                                <div class="input friendPP">
+                                    <img src="~/uploads/servers/@item.ServerImage" />
+                                    <p class="text-white">@item.Name</p>
+                                </div>
+                                <div class="col-12 d-flex justify-content-center">
+                                    <a class="btn btn-danger" asp-action="RemoveServer" asp-controller="home" asp-route-id="@item.Id"><i class="fa-solid fa-ban"></i></a>
+                                    <a class="btn btn-warning" asp-action="EditServer" asp-controller="home" asp-route-id="@item.Id"><i class="fa-solid fa-gear"></i></a>
+                                </div>
+                            </div>
+                        }
+                        @if (serverCount == 0)
+                        {
+                            <p class="text-white" style="font-size:22px;">You dont have any server </p>
+                        }
+                    </div>
+                    <div class="col-12 mt-3 ms-1">
+                        <h1>Server Join Requests</h1>
+                    </div>
+
+                    <div class="col-12 infoSection d-flex text-start">
+                        @foreach (var item in requestData)
+                        {
+                            requestCount++;
+                            <div class="col-3 ServerRequestDiv">
+                                <div class="input serverRequest">
+                                    <p class="text-white"><span>@item.FromUser.UserName</span> wants to Joins <span>@item.Server.Name</span></p>
+                                </div>
+                                <div class="col-9 align-self-end justify-content-end button d-flex">
+                                    <a class="btn btn-success mx-4" asp-action="AcceptServerJoin" asp-controller="AccountSetting" asp-route-id="@item.Id">
+                                        Accept
+                                    </a>
+                                    <a class="btn btn-danger" asp-action="RejectServerJoin" asp-controller="AccountSetting" asp-route-id="@item.Id">
+                                        Reject
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                        @if (requestCount == 0)
+                        {
+                            <p class="text-white" style="font-size:22px;">There is no Join request </p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/assets/js/app.js"></script>
+		}

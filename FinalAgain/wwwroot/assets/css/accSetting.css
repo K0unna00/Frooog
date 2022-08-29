@@ -1,0 +1,183 @@
+
+input{
+    border:0;
+    outline:0;
+}
+img {
+  max-width: 100%;
+}
+
+body {
+  overflow: visible !important;
+}
+
+.main {
+  height: 100vh;
+}
+
+.MainSection {
+    overflow-y: scroll;
+}
+
+main::-webkit-scrollbar {
+  width: 10px;
+}
+
+main::-webkit-scrollbar-track {
+  background: #3d434a;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #2d3238;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+  background: #212529;
+}
+
+.navbar {
+  padding: 15px 6px;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.navbar-brand {
+  color: white !important;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.nav-item {
+  margin: 0px 5px;
+  border-radius: 5px;
+}
+
+.nav-item a {
+  color: #f1e8e8 !important;
+  font-size: 20px;
+}
+
+.nav-item:hover {
+  background-color: #3d434a;
+}
+
+.nav-item:hover a {
+  color: white !important;
+}
+
+.active {
+  border-radius: 5px;
+  background-color: #3d434a;
+}
+
+.Profile {
+  margin-bottom: 20px;
+  background-color: #3d434a;
+  border-radius: 6px;
+  padding: 0px 20px 20px 20px;
+}
+
+.Profile h1 {
+  color: white;
+  font-size: 27px !important;
+}
+
+.Security {
+  margin-bottom: 20px;
+  background-color: #3d434a;
+  border-radius: 6px;
+  padding: 0px 20px 20px 20px;
+}
+
+.Security h1 {
+  color: white;
+  font-size: 27px !important;
+}
+
+.photoSection {
+  border-radius: 6px;
+  background-color: #4a5057;
+  margin: 20px 0px;
+  padding: 10px 15px;
+}
+.photoSection input {
+    width:200px;
+    border:0px;
+    border-radius:10px;
+    outline:0;
+}
+.photoSection img {
+  border-radius: 10px;
+}
+
+.photoSection .button button {
+  width: 120px;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0px 15px;
+  border: 0px;
+  border-radius: 4px;
+}
+
+.infoSection {
+  background-color: #4a5057;
+  border-radius: 6px;
+  padding: 10px 15px;
+}
+
+.infoSection .input {
+  margin: 10px 0px;
+}
+
+.infoSection .input input {
+  border-radius: 5px;
+  width: 340px;
+  height: 55px;
+  padding-left: 20px;
+  font-size: 18px;
+  outline: 0;
+}
+
+.infoSection .input textarea {
+  padding: 5px 20px;
+  outline: 0;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.infoSection button {
+  width: 120px;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0px 15px 8px 15px;
+  border: 0px;
+  border-radius: 4px;
+}
+.serverRequest{
+    text-align:center;
+}
+.serverRequest span {
+    border-radius: 5px;
+    padding: 2px 0px;
+    font-size: 18px;
+}
+.friendPP img{
+    border-radius:5px;
+}
+.ServerRequestDiv{
+    border-radius:7px;
+    padding-bottom:4px;
+    background-color:#2d3238;
+}
+.FriendRequestDiv {
+    padding:20px;
+    border-radius: 7px;
+    background-color: #2d3238;
+}
+.OwnedServersDiv {
+    border-radius: 7px;
+    background-color: #2d3238;
+}
+/*# sourceMappingURL=accSetting.css.map */

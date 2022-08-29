@@ -1,0 +1,71 @@
+﻿
+/*====================SerachServer==========================*/
+
+.searchedServers {
+    background-color: #4a5057;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-y:scroll;
+}
+.searchedServers::-webkit-scrollbar {
+    width: 10px;
+}
+
+.searchedServers::-webkit-scrollbar-track {
+    background: #2d3238;
+}
+
+.searchedServers::-webkit-scrollbar-thumb {
+    background: #2d3238;
+}
+
+.searchedServers::-webkit-scrollbar-thumb:hover {
+    background: #1e2124;
+}
+.serverCard {
+    margin: 10px 80px 30px 80px;
+    border-radius: 10px;
+    background-color: #2d3238;
+}
+.serverCard p{
+    color:#dadada;
+}
+.serverCard:hover p{
+    color:#fff;
+}
+.serverCard img{
+    border-radius:7px;
+    max-width:100%;
+}
+.leftSide{
+    padding:20px;
+}
+
+.leftSide p{
+    font-size:17px;
+    margin-top:10px;
+    margin-left:4px;
+}
+.rightSide{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:20px;
+}
+.rightSide a{
+    text-align:center;
+    padding-top:8px;
+    width:80px;
+    border:0px;
+    border-radius:4px;
+    background-color:#64a148;
+    color:#dadada;
+}
+.rightSide a:hover{
+    background-color:#5e9a43;
+    color:#fff;
+}
+
+
+
+

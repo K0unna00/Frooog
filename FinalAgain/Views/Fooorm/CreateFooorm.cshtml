@@ -1,0 +1,34 @@
+﻿@model Fooorm
+<div class="main">
+    <nav class="navbar navbar-expand navbar-light navbar-bg justify-content-between">
+        <a class="sidebar-toggle js-sidebar-toggle hamburgerA">
+            <img src="~/assets/images/Hamburger.png">
+        </a>
+    </nav>
+    <div class="MainSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 Profile mt-3">
+                    <div class="col-12 mt-3 ms-1">
+                        <h1>Ask New Question</h1>
+                    </div>
+                    <div class="col-12">
+                        <form class="d-flex flex-column" asp-action="CreateFooorm" method="post">
+                            <input asp-for="Header" placeholder="Title" class="fooormInput">
+                            <span asp-validation-for="Header" class="text-white validationFooorm">Max 50 char</span>
+                            <textarea asp-for="Text" placeholder="Body" cols="5" rows="12" class="fooormTextArea">
+
+                            </textarea>
+                            <span asp-validation-for="Text" class="text-white validationFooorm">Max 245 char</span>
+                            <button type="submit" class="fooormSubmit ">ASK</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/assets/js/app.js"></script>
+		}

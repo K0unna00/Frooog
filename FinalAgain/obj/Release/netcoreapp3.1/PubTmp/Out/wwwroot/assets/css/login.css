@@ -1,0 +1,59 @@
+.row {
+    font-family: 'Chakra Petch', sans-serif;
+    height: 100vh;
+}
+
+    .row .main .logo img {
+        max-width: 100%;
+    }
+.content{
+    margin-left:9px;
+}
+a{
+    text-decoration: none;
+    color: #dadada;
+}
+    a:hover {
+        color: #fff;
+    }
+.content input {
+    border-radius: 3px;
+    width: 90%;
+    height: 35px;
+    background-color: #cecece;
+    box-shadow: 0px;
+}
+
+.content input:hover {
+    background-color: #fff;
+}
+
+.content input:focus {
+    background-color: #fff;
+ }
+
+.button button {
+    border: 0px;
+    border-radius:2px;
+    outline: 0px;
+    width: 120px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: 500;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    background-color: #cecece;
+}
+
+    .button button:hover {
+        background-color: #fff;
+    }
+
+.forgetPass {
+    cursor: pointer;
+    color: #dadada;
+}
+.forgetPass:hover {
+    color: #fff;
+}
+/*# sourceMappingURL=login.css.map */

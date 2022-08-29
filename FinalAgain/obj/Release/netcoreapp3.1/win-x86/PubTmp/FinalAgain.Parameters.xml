@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="k0unna-001-site1" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Baxtiyar\\Desktop\\Final-Back-master\\FinalAgain\\obj\\Release\\netcoreapp3\.1\\win-x86\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="FinalAgain.DAL.AppDBContext" description="" value="Data Source=SQL8002.site4now.net;Initial Catalog=db_a8a198_finalbacpac;User Id=db_a8a198_finalbacpac_admin;Password=4363600Abc" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\Baxtiyar\\Desktop\\Final-Back-master\\FinalAgain\\obj\\Release\\netcoreapp3\.1\\win-x86\\PubTmp\\EFSQLScripts\\FinalAgain\.DAL\.AppDBContext\.sql$" />
+  </parameter>
+</parameters>

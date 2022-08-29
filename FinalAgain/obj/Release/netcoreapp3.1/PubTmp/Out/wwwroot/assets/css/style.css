@@ -1,0 +1,625 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+.navbar {
+    background-color: #2c3b4d;
+}
+.displayN{
+    display:none;
+}
+.hamburgerA img {
+    margin-top: 4px;
+    margin-left: 4px;
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.hamburgerA:hover {
+    background-color: #222e3c;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.inboxButtons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+    .inboxButtons li {
+        margin: 0px 9px;
+    }
+
+        .inboxButtons li i {
+            color: #e0e0e0;
+        }
+
+        .inboxButtons li:hover i {
+            color: white;
+        }
+
+body {
+    overflow: hidden;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.logo {
+    width: 100%;
+}
+
+.sidebar-nav {
+    margin-left: 43px;
+}
+
+.sidebar-link i {
+    color: #fff;
+}
+
+.sidebar-link .align-middle {
+    font-size: 17px;
+    color: #dadada;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.sidebar-link:hover .align-middle {
+    color: #fff;
+}
+
+.inboxButtons i {
+    font-size: 20px;
+    color: #2c2c2c;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+
+    .inboxButtons i:hover {
+        color: #46607e;
+    }
+
+.navFooter {
+    margin-left: 25px;
+    margin-bottom: 30px;
+}
+
+    .navFooter .col-5 {
+        margin-left: 8px;
+    }
+
+    .navFooter a {
+        color: #2c3b4d;
+    }
+
+    .navFooter .col-5 p {
+        margin: 10px 0px 4px 0px;
+        color: white;
+        font-size: 20px;
+    }
+
+    .navFooter .col-5 hr {
+        margin: 0;
+        width: 80%;
+        color: white;
+    }
+
+    .navFooter .col-3 ul {
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        padding-left: 10px;
+        list-style-type: none;
+        margin: 0;
+    }
+
+        .navFooter .col-3 ul li {
+            margin-bottom: 6px;
+        }
+
+.navFooter .col-3 ul li button{
+    position:relative;
+    width: 30px;
+    border: 0;
+    border-radius: 3px;
+    color: #222e3c;
+    background-color: #dfe5eb;
+}
+.notificationSign{
+    position:absolute;
+    top:-3px;
+    right:-3px;
+    width:10px;
+    height:10px;
+    background-color:red;
+    border-radius:50%;
+}
+.navFooter .col-3 ul li button:hover {
+    background-color: #fff;
+}
+
+    .navFooter img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+.main {
+    max-height: 1000px;
+    background-color: #3a5068;
+}
+
+    .main .inboxUserList {
+        cursor: pointer;
+        padding-bottom: 7px;
+        background-color: #304155;
+        min-width: 215px;
+        width: 14%;
+        overflow-y: scroll;
+        height: 95vh;
+    }
+
+        .main .inboxUserList a {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main .inboxUserList ul {
+            list-style-type: none;
+            margin: 0;
+            padding-left: 8px;
+            background: #304155;
+        }
+
+.main .inboxUserList ul li {
+    padding: 5px;
+    font-size: 16px;
+    /*max-height: 60px;*/
+    margin-top: 3px;
+    border-radius: 3px;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    position:relative;
+}
+.userStatus {
+    position:absolute;
+    top:20px;
+    right:0;
+    color: green;
+}
+                .main .inboxUserList ul li img {
+                    max-width: 50px;
+                    max-height: 50px;
+                    border-radius: 10px;
+                    max-width: 100%;
+                }
+
+.inboxUserList ul:first-child {
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+}
+
+.main .inboxUserList ul li p {
+    margin-top: 15px;
+    margin-left: 5px;
+    color: white;
+}
+
+.main .inboxUserList ul li:hover {
+    background-color: #3a4f66;
+}
+
+.main .inboxUserList::-webkit-scrollbar {
+    width: 10px;
+}
+
+.main .inboxUserList::-webkit-scrollbar-track {
+    background: #304155;
+}
+
+.main .inboxUserList::-webkit-scrollbar-thumb {
+    background: #2c3b4d;
+}
+
+    .main .inboxUserList::-webkit-scrollbar-thumb:hover {
+        background: #24303f;
+    }
+
+.main .chatSection {
+    width: 100%;
+}
+
+@media only screen and (max-width: 550px) {
+    .inboxUserList {
+        display: none;
+    }
+}
+
+.messageArea {
+    color: white;
+    margin-top: 15px;
+    width: 91%;
+    max-height: 82%;
+    overflow-y: scroll;
+}
+
+    .messageArea::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .messageArea::-webkit-scrollbar-track {
+        background: #304155;
+    }
+
+    .messageArea::-webkit-scrollbar-thumb {
+        background: #2c3b4d;
+    }
+
+        .messageArea::-webkit-scrollbar-thumb:hover {
+            background: #24303f;
+        }
+
+    .messageArea ul {
+        padding-right: 30px;
+    }
+
+        .messageArea ul li div {
+            margin-bottom: 2px;
+        }
+
+    .messageArea img {
+        padding: 0;
+        margin: 0;
+        max-width: 3%;
+    }
+
+    .messageArea ul li {
+        display:flex;
+        flex-direction:column;
+        overflow-wrap: anywhere;
+        padding: 7px 8px 0px 8px;
+        border-radius: 6px;
+        -webkit-transition: 0.1s;
+        transition: 0.1s;
+        margin-bottom: 10px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-bottom: 1px solid #334050;
+    }
+
+        .messageArea ul li p {
+            font-size: 18px;
+            color: #c5cfdb;
+            -webkit-transition: 0.1s;
+            transition: 0.1s;
+            margin: 10px 0 0 0;
+            padding: 0;
+        }
+
+        .messageArea ul li span {
+            color: #aab5c2;
+            margin: 0;
+            padding: 0px 10px;
+        }
+
+        .messageArea ul li:hover {
+            background-color: #304155;
+        }
+
+            .messageArea ul li:hover p {
+                color: #fff;
+            }
+
+            .messageArea ul li:hover span {
+                color: #c5cfdb;
+            }
+
+.textArea {
+    color: white;
+    width: 100%;
+    height: 18%;
+    padding: 2% 30px 7% 0px;
+}
+
+    .textArea input {
+        outline: none;
+        width: 90%;
+        height: 30px;
+        border: 0px;
+        border-radius: 4px;
+        padding-left: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .textArea a {
+        margin-left: 5px;
+        outline: none;
+        border: 0px;
+        background-color: transparent;
+        color: #c5cfdb;
+        font-size: 20px;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+    }
+
+    .textArea button:hover {
+        color: #fff;
+    }
+
+.activeBtn {
+    color: white;
+    background-color: #3a4f66;
+}
+
+
+.inputName {
+    position: relative;
+    height: 60px;
+    background-color: #33475f;
+    padding: 14px;
+    border-radius: 8px;
+}
+
+    .inputName input {
+        width: 300px;
+        border-radius: 4px;
+        padding: 4px 12px;
+    }
+
+. /*inputName button{
+    margin-left:20px;
+    border-radius:4px;
+    color:#33475f;
+    transition:0.2s;
+}*/
+.inputName button:hover {
+    color: #33275f;
+    background-color: white;
+}
+
+.searchedUsers {
+    background-color: #33475f;
+    padding: 20px;
+    border-radius: 8px;
+    height: 72vh;
+}
+
+.UserSearchButton {
+    position: absolute;
+    top: 10px;
+    left: 325px;
+    width: 40px;
+    font-size: 20px;
+    background-color: #ebebeb;
+    padding: 2px 5px;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    color: #33475f;
+}
+
+    .UserSearchButton:hover {
+        background-color: white;
+        color: #304155;
+    }
+
+    .UserSearchButton i {
+        margin-left: 0 !important;
+    }
+
+.SendRequest {
+    border: 0;
+    border-radius: 6px;
+    width: 120px;
+    height: 60px;
+    background-color: green;
+    color: white;
+    margin-top: 17px;
+}
+
+.RequestUserListItem img {
+    border-radius: 8px;
+    max-width: 20%;
+}
+
+.RequestUserListItem {
+    width: 700px;
+    height: 100px;
+}
+
+    .RequestUserListItem p {
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+    .RequestUserListItem .user {
+        width: 580px;
+        display: flex;
+    }
+
+.fooormList {
+    max-height: 200px !important;
+    border-radius: 6px !important;
+}
+.askQuestion {
+    max-height: 200px !important;
+    border-radius: 6px !important;
+}
+.askQuestion  i {
+    font-size: 24px;
+    color: #e0e0e0;
+    transition: 0.2s;
+}
+.SearchFooorm {
+    max-height: 200px !important;
+    border-radius: 6px !important;
+}
+.SearchFooorm input {
+        margin-left: auto;
+        width: 92%;
+        padding: 0px 4px;
+        border-radius: 6px;
+    }
+    .fooormList:hover i {
+        color: white;
+    }
+    .fooormList .info p {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+    }
+.newHeadersList{
+    padding-bottom:40px !important;
+}
+.newHeadersList hr {
+    margin-left: auto;
+    width: 80%;
+    color: white !important;
+}
+
+.fooormInput {
+    margin: 10px 20px;
+    height: 38px;
+    padding: 6px 10px;
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+.fooormTextArea {
+    margin: 10px 20px;
+    outline: 0;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 17px;
+}
+
+.fooormSubmit {
+    width: 160px;
+    height: 25px;
+    margin: 10px 20px;
+    outline: 0;
+    border-radius: 6px;
+    border: 0;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.fooormBTN {
+    color: #dadada;
+}
+
+    .fooormBTN span {
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #24303e;
+    }
+
+    .fooormBTN:focus {
+        /*border:1px solid white;*/
+    }
+
+    .fooormBTN:hover {
+        color: white;
+    }
+
+.fooormHr {
+    height: 2px !important;
+    width: 20% !important;
+    margin-right: auto;
+}
+
+.fooormHr1:hover {
+    background-color: transparent !important;
+}
+
+.Title {
+    border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 15px;
+    background-color: #304155;
+}
+
+.Title h3 {
+    margin: 0;
+    color: white;
+}
+
+.Body {
+    padding: 15px 10px 0px 24px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: #304155;
+    height:60px;
+    overflow:hidden;
+}
+
+.Body h4 {
+    color: white;
+}
+
+.fooormChatHr {
+    width: 65%;
+    margin-top: 15px !important;
+    color: white !important;
+    border: 1px solid white;
+}
+
+.answerList {
+    overflow-y:scroll;
+    height:650px;
+    color: white;
+}
+
+.answerList li {
+    transition:0.1s;
+    padding:10px;
+    border-radius:8px;
+    margin: 15px 0px;
+}
+.answerList li:hover{
+    background-color:#304155;
+}
+.answerList p {
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.answerList hr {
+    margin: 0;
+}
+
+.answerList img {
+    max-width: 2%;
+}
+
+.answerList::-webkit-scrollbar {
+    width: 10px;
+}
+
+.answerList::-webkit-scrollbar-track {
+    background: #304155;
+}
+
+.answerList::-webkit-scrollbar-thumb {
+    background: #24303f;
+}
+
+    .answerList::-webkit-scrollbar-thumb:hover {
+        background: #222e3c;
+    }
+.validationFooorm{
+    margin-left:22px;
+}
+/*# sourceMappingURL=style.css.map */

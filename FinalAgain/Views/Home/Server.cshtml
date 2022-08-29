@@ -1,0 +1,107 @@
+﻿@using FinalAgain.Services
+@inject LayoutService layoutService
+@{
+    List<AppUser> Users = layoutService.GetUsers();
+    var user = Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
+}
+@{
+    string SubName;
+}
+<div class="main">
+    <nav class="navbar navbar-expand navbar-light navbar-bg justify-content-between">
+        <a class="sidebar-toggle js-sidebar-toggle hamburgerA">
+            <img src="~/assets/images/Hamburger.png">
+        </a>
+        <ul class="inboxButtons">
+            <li>
+                <a class="userList-toggle">
+                    <i class="fa-solid fa-server"></i>
+                </a>
+            </li>
+            <li>
+                <a asp-action="SearchServerOnGlobal" asp-controller="Home">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="main d-flex flex-row">
+            <div class="serverUsers" id="SL">
+                <ul>
+                    <li>
+                        <div class="col-6 w-75 text-white mx-auto text-center addServerBtn align-items-center">
+                            <a asp-action="CreateServer">
+                                <i class="fa-solid fa-circle-plus"></i>
+                                <p>
+                                    Create Server
+                                </p>
+                            </a>
+                        </div>
+                    </li>
+                    @*<li>
+                        <div class="col-6 w-75 text-white mx-auto text-center addServerBtn align-items-center">
+                            <div >
+                                <input style="width:150px; height:24px; padding:0px 4px; margin-left:-10px; border-radius:6px; " class="searchInput">
+                            </div>
+                            <a class="searchButton" asp-action="SearchServer" asp-controller="Home"><i class="fa-brands fa-searchengin" style="font-size:20px;"></i> Search Server</a>
+                        </div>
+                    </li>*@
+                </ul>
+                <ul class="ServerList">
+                    @foreach (var server in Model)
+                    {
+                        <li>
+                            <a class="server serverBTN" asp-action="GetMessages" asp-controller="home" id="@server.Id" data-userId="@user.UserName">
+                                <img src="~/uploads/servers/@server.ServerImage" alt="">
+                                <p>
+                                    @if (server.Name.Length > 10)
+                                    {
+                                        SubName = server.Name.Substring(0, 9) + "...";
+                                        @SubName
+                                    }
+                                    else
+                                    {
+                                        @server.Name
+                                        ;
+                                    }
+                                </p>
+                            </a>
+                            <div class="usersOnServer">
+                                <ul class="usersOnServerUl">
+                                    @*@foreach (var user in ViewBag.Users)
+                                    {
+                                        @if (user.OnServerId == server.Id)
+                                        {
+                                            <li id="@user.UserName">
+                                                <img src="~/uploads/Users/@user.UserPP" alt="">
+                                                <p>@user.UserName</p>
+                                            </li>
+                                        }
+                                    }*@
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="chatSection d-flex flex-column justify-content-between w-80 ps-6 pt-3">
+                <div class="messageArea ">
+                    @*<img class="placeHolderImgServer" src="/assets/images/placeHolder.png" />*@
+                </div>
+                <div class="textArea text-center displayN">
+                    <input type="hidden" id="ChannelId" />
+                    <input id="messageInput" type="text">
+                    <a id="sendButton" asp-action="SetMessage" asp-controller="Chat"><img src="~/assets/images/FrogJump.png"/></a>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+@section scripts{
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/SearchServer.js"></script>
+    <script src="~/assets/js/MessageSend.js"></script>
+    <script src="~/assets/js/ShowMessage.js"></script>
+    <script src="~/assets/js/Camera.js"></script>
+	}	

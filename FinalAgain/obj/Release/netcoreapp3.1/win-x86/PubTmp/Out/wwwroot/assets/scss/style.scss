@@ -1,0 +1,132 @@
+.container{
+    max-width: 1200px;
+}
+.navbar .navbar-nav .nav-link {
+    color: gray;
+    font-size: 1.0em;
+}
+.navbar .navbar-nav .nav-link:hover{
+    color: #C54D8D;
+}
+@media only screen and (min-width: 960px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+  .dropdown .dropdown-menu {
+    display: none;
+  }
+  .dropdown:hover .dropdown-toggle::after {
+    border-bottom: 0.3em solid;
+    border-top: 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  .dropdown-toggle.show::after {
+    border-top: 0;
+    border-bottom: 0.3em solid;
+  }
+}
+#hero{
+    background-image: url("https://risefoundation.eu/wp-content/uploads/2020/06/qi-bin-w4hbafegiac-unsplash.jpg");
+    background-size: cover;
+    .hero{
+        height: 900px;
+       .logo{
+           img{
+               width: 250px;
+           }
+       } 
+       .title{
+           font-size: 50px;
+           color: white;
+       }
+       .subtitle{
+           font-size: 22px;
+           color: white;
+       }
+    }
+}
+#about{
+    margin-top: 30px;
+    .image{
+        img{
+            max-width: 100%;
+        }
+    }
+    .title{
+        p{
+            font-size: 35px;
+            color: rgb(126, 126, 126);
+        }
+    }
+}
+#members{
+    margin: 60px;
+    .myCard{
+        .image{
+            img{
+                max-width: 100%;
+            }
+        }
+        .memberName{
+            p{
+                font-size: 28px;
+                color: rgb(126, 126, 126);
+            }
+        }
+        .role{
+            margin-top: -16px;
+            p{
+                font-size: 20px;
+                color: rgb(126, 126, 126);
+            }
+        }
+    }
+}
+#areas{
+    background-image: url("https://www.globys.com/wp-content/uploads/2016/09/placeholder-landscape.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    .areas{
+        margin: 120px 0px;
+        .areaName{
+            p{
+                color: black;
+                font-size: 27px;
+            }
+        }
+    }
+}
+#footer{
+    padding: 120px 0px;
+    background-color: #000;
+    .title{
+        font-size: 40px;
+        font-weight: 100;
+        margin-bottom: 40px;
+    }
+    .text{
+        p{
+            font-size: 20px;
+            color: rgb(221, 221, 221);
+        }
+    }
+    .phone{
+        p{
+            font-size: 22px;
+        }
+    }
+    .media{
+        i{
+            color: white;
+        }
+    }
+    .myForm{
+        button{
+            border: 0px;
+            background-color: #C54D8D;
+        }
+    }
+}

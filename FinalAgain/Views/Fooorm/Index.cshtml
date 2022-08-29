@@ -1,0 +1,96 @@
+﻿@model List<Fooorm>
+<div class="main">
+    <nav class="navbar navbar-expand navbar-light navbar-bg justify-content-between">
+        <a class="sidebar-toggle js-sidebar-toggle hamburgerA">
+            <img src="/assets/images/Hamburger.png">
+        </a>
+        <ul class="inboxButtons">
+            <li>
+                <a class="userList-toggle">
+                    <i class="fa-solid fa-align-center"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="main d-flex flex-row">
+            <div class="inboxUserList text-center" id="UL">
+                <ul class="newHeadersList d-flex flex-column">
+                    <li class="askQuestion align-items-center pt-2">
+                        <div>
+                            <a asp-action="CreateFooorm">
+                                <i class="fa-solid fa-circle-plus"></i>
+                                <p>
+                                    Ask a new Questiooon
+                                </p>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="SearchFooorm align-items-center pt-2">
+                        <div>
+                            <input class="mb-2 d-block mx-auto searchInput"/>
+                            <a class="searchButton searchFooorm" asp-action="SearchFooorm" asp-controller="Fooorm"><i class="fa-brands fa-searchengin" style="font-size:20px;"></i> Search Question</a>
+                        </div>
+                    </li>
+                    <li class="fooormHr1">
+                        <hr class="fooormHr">
+                    </li>
+                    <li>
+                        <a class="fooormBTN btn btn-link" asp-action="SortTopQuestions"><span>Top 10</span> Questions</a>
+                    </li>
+                    <li>
+                        <a class="fooormBTN btn" asp-action="SortLatestQuestions"><span>Latest</span> Questions</a>
+                    </li>
+                    <li class="fooormHr1">
+                        <hr class="fooormHr">
+                    </li>
+                    @*===========================================*@
+                    @foreach (Fooorm fooorm in Model)
+                    {
+                        <li class="fooormList">
+                            <a asp-action="ShowFooormItem" class="fooormListA" id="@fooorm.Id">
+                                <div class="header">
+                                    <p>@fooorm.Header</p>
+                                </div>
+                                <div class="info text-start">
+                                    <p> @fooorm.AnswerCount answer </p>
+                                    <p> @fooorm.ViewCount view </p>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                   
+                </ul>
+            </div>
+            <div class="chatSection d-flex flex-column justify-content-between ">
+                <div class="container">
+                    <div class="row text-center headerHTML">
+                        
+                    </div>
+                    <div class="row">
+                        <ul class="answerList">
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="textArea text-center d-flex flex-column justify-content-between ">
+                    <div class="container">
+                        <div class="row">
+                        </div>
+                    </div>
+                    <div class="fooormInputDiv displayN">
+                        <input type="text" class="fooormInput" >
+                        <button id="sendButton" asp-action="SetMessage" asp-controller="Fooorm"><img src="~/assets/images/FrogJump.png"/></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+@section scripts{
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/ShowFooorm.js"></script>
+    <script src="~/assets/js/MessageSendFooorm.js"></script>
+    <script src="~/assets/js/SortFooorm.js"></script>
+    <script src="~/assets/js/FooormSearch.js"></script>
+	}	
